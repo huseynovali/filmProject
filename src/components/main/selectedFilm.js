@@ -1,8 +1,8 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { FaTrashAlt } from "react-icons/fa";
-import { Link, Route, Routes } from "react-router-dom";
-import Links from "./links";
+import { Link } from "react-router-dom";
+
 export default function SelectedFilm({
   selectedMovie,
   setSelectedMovie,
@@ -52,7 +52,7 @@ export default function SelectedFilm({
         </button>
       )}
 
-      {id && <Link to={`/list/${id}`}>salam</Link>}
+      {id && <Link to={`/list/${id}`}>Salam</Link>}
     </div>
   );
 }

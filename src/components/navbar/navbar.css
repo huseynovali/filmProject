@@ -15,7 +15,7 @@
     width: 1000px;
   }
 }
-h1 {
+.navbar h1 {
   font-family: "Luckiest Guy", cursive !important;
   color: #ffeedb !important;
   font-size: 45px !important;

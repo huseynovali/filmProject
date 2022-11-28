@@ -1,9 +1,19 @@
-import React, {  useState } from "react";
+import React, { useEffect, useState } from "react";
+import AddMessage from "./addMessage";
 import "./films.css";
 function FilmList({ films, setSelectedMovie, selectedMovie }) {
+  const [message, setMessage] = useState(false);
+
+  useEffect(() => {
+    setInterval(() => {
+      setMessage(false);
+    }, 3000);
+  }, [message]);
+
   return (
     <div className="mt-5">
-      <div className="row m-auto">
+      <div className="row m-auto position-relative">
+        {message && <AddMessage />}
         {films.map((film) => {
           return (
             <div className="col-12 col-lg-4 p-0 " key={film.imdbID}>
@@ -23,14 +33,15 @@ function FilmList({ films, setSelectedMovie, selectedMovie }) {
 
                   <button
                     className="btn btn-success"
-                    onClick={() =>
+                    onClick={() => {
+                      setMessage(true);
                       setSelectedMovie([
                         film,
                         ...selectedMovie.filter(
                           (x) => x.imdbID !== film.imdbID
                         ),
-                      ])
-                    }
+                      ]);
+                    }}
                   >
                     Добавить в список
                   </button>
@@ -43,4 +54,4 @@ function FilmList({ films, setSelectedMovie, selectedMovie }) {
     </div>
   );
 }
-export default FilmList
+export default FilmList;
